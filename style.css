@@ -1,6 +1,14 @@
-#Start-Page {
+canvas#viewport {
+    border: 1px solid white;
+    width: 900px;
+}
+
+
+
+
+/*#Start-Page {
     font-family: Lucida Sans Unicode;
     color: black;
 
 
-}
+} */
