@@ -1,0 +1,24 @@
+#canvas {
+    width: 800px !important;
+    height: 550px !important;
+}
+
+body {
+    background: #252154;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+img {
+    display: block;
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+/* article {
+    display: flex;
+} */

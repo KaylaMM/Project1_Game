@@ -2,27 +2,10 @@
 
 window.addEventListener("load", () => {
     // const canvas = document.querySelector("canvas");
+    var canvas = document.getElementsByTagName('canvas')[0];
+    canvas.width = 800;
+    canvas.height = 550;
     const myGame = new Game();
     //   console.log("what: ", game);
     myGame.init();
 });
-
-
-// CELIA IMAGE
-// let component = new Component(gameWidth, gameHeight);
-// component.draw()
-// component.src = "./images/Celia-Move-Right-removebg-preview.png"
-
-
-//MARCOS'S CODE
-// Learn more or give us feedback
-// window.onload = function() {
-//     document.getElementById("start-button").onclick = function() {
-//         startGame();
-//     };
-
-//     function startGame() {
-//         const myGame = new Game();
-//         myGame.init();
-//     }
-// };
