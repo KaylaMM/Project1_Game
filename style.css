@@ -1,6 +1,7 @@
 #canvas {
     width: 800px !important;
     height: 550px !important;
+    padding: 100px;
 }
 
 body {
@@ -11,14 +12,38 @@ body {
     align-items: center;
 }
 
-img {
+article {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    padding-left: 25px;
+    justify-content: center;
+    align-items: center;
+}
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    color: white;
+    font-size: 25px;
+}
+
+button {
+    color: white;
+    background: hotpink;
+    padding: 15px;
+}
+
+.gameName {
     display: block;
     width: 300px;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
+    width: 100%;
 }
 
-/* article {
-    display: flex;
-} */
+
+.animatedCelia {
+    width: 170px;
+    height: 250px;
+}

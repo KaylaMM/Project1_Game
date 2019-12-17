@@ -6,6 +6,7 @@ class Game {
         this.sugar = []; //new Component(this, 800, 0, 100, 80)
         this.splenda = []; //new Component(this, 75, 75, 100, 90);
         this.score = 0;
+        this.interval = undefined;
     }
 
     init() {
@@ -17,7 +18,7 @@ class Game {
     start() {
         this.drawBackground();
         this.drawMainCharacters();
-        const interval = setInterval(() => {
+        this.interval = setInterval(() => {
             this.clear();
             this.drawBackground();
             this.drawMainCharacters();
@@ -26,32 +27,23 @@ class Game {
             this.celiaRight.move();
 
 
-            if (this.celiaRight.didCollide(this.splenda)) {
-                // do whatever you wanna do whenevr you collide witha splenda
-                // let scoreText = game.add.text(5, 5, 'Points: 0', {
-                //     font: '18px Arial',
-                //     fill: '#0095DD'
-                // });
-                this.score -= 5;
-                return scoreText
-            }
-
-            if (this.celiaRight.didCollide(this.sugar)) {
-                // do whatever you wanna do whenevr you collide witha sugar
-                // let scoreText = game.add.text(5, 5, 'Points: 0', {
-                //     font: '18px Arial',
-                //     fill: '#0095DD'
-                // });
-                this.score += 10;
-                return scoreText
-
-            }
+            this.ctx.fillStyle = "pink";
+            this.ctx.font = "45px Arial";
+            this.ctx.fillText(`Score: ${this.score}`, 1050, 50);
 
 
             if (this.splenda.length > 0) {
                 for (var i = 0; i < this.splenda.length; i++) {
                     this.splenda[i].drawComponent("./images/splenda.png");
                     this.splenda[i].y += 4;
+
+                    if (this.celiaRight.didCollide(this.splenda[i])) {
+                        console.log('score down')
+                        this.score -= 15;
+                        this.splenda.splice(i, 1)
+                        return this.score
+                    }
+
                     if (this.splenda[i].y > 550) {
                         this.splenda.splice(i, 1);
                     }
@@ -63,13 +55,45 @@ class Game {
                 for (var i = 0; i < this.sugar.length; i++) {
                     this.sugar[i].drawComponent("./images/sugar.png");
                     this.sugar[i].y += 4;
+
+                    if (this.celiaRight.didCollide(this.sugar[i])) {
+                        console.log('this is my score');
+                        this.score += 10;
+                        this.sugar.splice(i, 1)
+
+                        return score
+                    }
                     if (this.sugar[i].y > 550) {
                         this.sugar.splice(i, 1)
                     }
                 };
             }
 
+            if (this.score > 150) {
+                this.clear();
+                this.gameWin();
+                //clear removes the game board & game over text
+                // this.clear(interval);
+                //add winning image & audio here
+            }
+
+            if (this.score < 0) {
+                this.clear();
+                this.gameOver();
+                //clear removes the game board & game over text
+                // this.clear(interval);
+                //add losing image & audio here
+                // this.drawImage("./images/Losing-Image.png");
+            }
+
+
+
+
         }, 2000 / 100);
+
+
+
+
     }
 
 
@@ -100,6 +124,7 @@ class Game {
             this.canvas.width,
             this.canvas.height
         );
+
     }
 
     clear() {
@@ -110,14 +135,27 @@ class Game {
         this.celiaRight.drawComponent("./images/Celia-Move-Right-removebg-preview.png");
     }
 
-    drawScoreBoard() {
-
-    }
-
-    gameOver() {
+    gameWin() {
+        // location = "./you-win.html"
         this.clear();
         this.drawBackground();
-        this.ctx.font = "70px Centruy-Gothic bold";
+        this.ctx.font = "90px Arial bold";
+        this.ctx.textAlign = "center";
+        this.ctx.fillStyle = "white";
+        this.ctx.fillText(
+            "You Win!",
+            this.canvas.width / 2,
+            this.canvas.height / 2
+        );
+    }
+
+
+    gameOver() {
+        clearInterval(this.interval)
+        // location = "./"
+        this.clear();
+        this.drawBackground();
+        this.ctx.font = "90px Arial bold";
         this.ctx.textAlign = "center";
         this.ctx.fillStyle = "white";
         this.ctx.fillText(

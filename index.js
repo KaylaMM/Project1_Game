@@ -2,10 +2,15 @@
 
 window.addEventListener("load", () => {
     // const canvas = document.querySelector("canvas");
-    var canvas = document.getElementsByTagName('canvas')[0];
-    canvas.width = 800;
-    canvas.height = 550;
-    const myGame = new Game();
-    //   console.log("what: ", game);
-    myGame.init();
+    // var canvas = document.getElementsByTagName('canvas')[0];
+
+    document.getElementById("start").onclick = () => {
+        startGame();
+    };
+
+    function startGame() {
+        const myGame = new Game();
+        myGame.init();
+    }
+
 });

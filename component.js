@@ -28,23 +28,24 @@
       }
 
       didCollide(otherComp) {
+          console.log("what is:", otherComp)
 
 
-          otherComp.forEach(eachSugarThingy => {
+          //   otherComp.forEach(eachSugarThingy => {
 
 
-              const crossHorizontal =
-                  eachSugarThingy.x <= this.getRight() && (eachSugarThingy.x + eachSugarThingy.width) >= this.getLeft();
+          const crossHorizontal =
+              otherComp.x <= this.getRight() && (otherComp.x + otherComp.width) >= this.getLeft();
 
-              const crossVertical =
-                  eachSugarThingy.y <= this.getBottom() && (eachSugarThingy.y + eachSugarThingy.height) >= this.getTop();
+          const crossVertical =
+              otherComp.y <= this.getBottom() && (otherComp.y + otherComp.height) >= this.getTop();
 
 
-              if (crossHorizontal && crossVertical) {
-                  return true;
-              }
+          if (crossHorizontal && crossVertical) {
+              return true;
+          }
 
-          });
+          //   });
 
           return false;
       }
