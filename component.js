@@ -20,13 +20,16 @@
           return this.x + this.width;
       }
 
+// code below may not be needed
+
       getTop() {
           return this.y;
       }
       getBottom() {
           return this.y + this.height;
       }
-
+      
+//===============================
       didCollide(otherComp) {
           console.log("what is:", otherComp)
 
