@@ -3,8 +3,8 @@ class Game {
         this.canvas = undefined;
         this.ctx = undefined;
         this.celiaRight = new Player(this, 475, 475, 300, 250);
-        this.sugar = []; //new Component(this, 800, 0, 100, 80)
-        this.splenda = []; //new Component(this, 75, 75, 100, 90);
+        this.sugar = []; 
+        this.splenda = []; 
         this.score = 0;
         this.interval = undefined;
     }
@@ -51,7 +51,7 @@ class Game {
             }
 
             if (this.sugar.length > 0) {
-                // console.log("the sugar length =========== ", this.sugar.length)
+
                 for (var i = 0; i < this.sugar.length; i++) {
                     this.sugar[i].drawComponent("./images/sugar.png");
                     this.sugar[i].y += 4;
@@ -72,18 +72,13 @@ class Game {
             if (this.score > 150) {
                 this.clear();
                 this.gameWin();
-                //clear removes the game board & game over text
-                // this.clear(interval);
-                //add winning image & audio here
+        
             }
 
             if (this.score < 0) {
                 this.clear();
                 this.gameOver();
-                //clear removes the game board & game over text
-                // this.clear(interval);
-                //add losing image & audio here
-                // this.drawImage("./images/Losing-Image.png");
+        
             }
 
 
@@ -100,11 +95,9 @@ class Game {
     createObstacles() {
         if (Math.floor(Math.random() * 300) % 35 === 0) {
             this.sugar.push(new Component(this, Math.floor(Math.random() * 1200), 0, 100, 80));
-            // console.log("obstacle == ", this.sugar);
         }
         if (Math.floor(Math.random() * 1000) % 55 === 0) {
             this.splenda.push(new Component(this, Math.floor(Math.random() * 1200), 0, 100, 80));
-            // console.log("obstacle == ", this.splenda);
         }
     }
 
@@ -136,7 +129,7 @@ class Game {
     }
 
     gameWin() {
-        // location = "./you-win.html"
+        
         this.clear();
         this.drawBackground();
         this.ctx.font = "90px Arial bold";
@@ -152,7 +145,6 @@ class Game {
 
     gameOver() {
         clearInterval(this.interval)
-        // location = "./"
         this.clear();
         this.drawBackground();
         this.ctx.font = "90px Arial bold";

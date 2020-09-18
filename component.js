@@ -20,7 +20,7 @@
           return this.x + this.width;
       }
 
-// code below may not be needed
+
 
       getTop() {
           return this.y;
@@ -29,13 +29,9 @@
           return this.y + this.height;
       }
       
-//===============================
+
       didCollide(otherComp) {
-          console.log("what is:", otherComp)
-
-
-          //   otherComp.forEach(eachSugarThingy => {
-
+    
 
           const crossHorizontal =
               otherComp.x <= this.getRight() && (otherComp.x + otherComp.width) >= this.getLeft();
