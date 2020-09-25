@@ -4,7 +4,7 @@ A two dimensional falling, dodging, catching game where you help Cuban icon, Cel
 
 ## Where to Play
 
-To play this game, all you need to do is click [here](xhttps://kaylamm.github.io/Project1_Game)
+[Click Here](https://kaylamm.github.io/Project1_Game)
 
 ## How to Play
 
